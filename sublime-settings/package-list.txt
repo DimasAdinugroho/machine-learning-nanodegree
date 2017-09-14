@@ -1,0 +1,29 @@
+Anaconda
+A File Icon
+LiveReload
+DocBlockr
+Pretty JSON
+Pretty YAML
+python-jinja2
+python-markdown
+pyyaml
+SublimeLinter
+SublimeREPL
+Terminal
+material-theme
+Themr
+All Autocomplete
+Dockerfile Syntax Highlighting
+GhostText
+GitGutter
+FontCycler
+Markdown Preview
+Origami
+PackageResourceViewer
+SidebarEnchancement
+RAML Syntax Highlighting
+SublimeLinter
+SublimeLinter-annotations
+SublimeLinter-pep8
+Trimmer
+WordCount
