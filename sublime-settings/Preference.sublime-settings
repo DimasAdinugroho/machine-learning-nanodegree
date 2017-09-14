@@ -1,0 +1,82 @@
+{
+	"animation_enabled": false,
+	"caret_extra_bottom": 1,
+	"caret_extra_top": 2,
+	"caret_extra_width": 1,
+	"caret_style": "blink",
+	"color_scheme": "Packages/Material Theme/schemes/Material-Theme-Darker.tmTheme",
+	"draw_white_space": "none",
+	"ensure_newline_at_eof_on_save": true,
+	"file_exclude_patterns":
+	[
+		".DS_Store",
+		"*.pid",
+		"*.pyc",
+		"*.lib"
+	],
+	"folder_exclude_patterns":
+	[
+		".git",
+		"__pycache__",
+		"env",
+		"env3"
+	],
+	"font_face": "FiraCode",
+	"font_size": 11,
+	"fonts_list":
+	[
+		{
+			"font_face": "Consolas",
+			"font_size": 11,
+			"line_padding_bottom": 1,
+			"line_padding_top": 0
+		},
+		{
+			"font_face": "Courier",
+			"font_size": 12
+		},
+		{
+			"font_face": "Inconsolata",
+			"font_size": 11,
+			"line_padding_bottom": 1,
+			"line_padding_top": 0
+		},
+		{
+			"font_face": "Hack",
+			"font_size": 11,
+			"line_padding_bottom": 1,
+			"line_padding_top": 0
+		},
+		{
+			"font_face": "FiraCode",
+			"font_size": 11,
+			"line_padding_bottom": 1,
+			"line_padding_top": 0
+		}
+	],
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"line_padding_bottom": 1,
+	"line_padding_top": 0,
+	"margin": 0,
+	"match_brackets": false,
+	"match_brackets_angle": false,
+	"match_brackets_braces": false,
+	"match_brackets_content": false,
+	"match_brackets_square": false,
+	"match_selection": false,
+	"match_tags": false,
+	"scroll_past_end": false,
+	"show_tabs_dropdown": true,
+	"tab_completion": true,
+	"tab_size": 4,
+	"tabs_padding_small": true,
+	"tabs_small": true,
+	"theme": "Material-Theme-Darker.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"tree_animation_enabled": false,
+	"wide_caret": true,
+	"word_wrap": false
+}
