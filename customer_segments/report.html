@@ -11782,7 +11782,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Import libraries necessary for this project</span>
@@ -11839,7 +11839,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Display a description of the dataset</span>
@@ -11969,10 +11969,10 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># the data is largely skewed</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># the data is largely skewed, we can also see the graph on below</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 
 <span class="n">f</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">27</span><span class="p">))</span>
@@ -12592,7 +12592,7 @@ AAAwTMAAAAAADPv/Aa/RbJsaITXgAAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Select three indices of your choice you wish to sample from the dataset</span>
@@ -12602,6 +12602,14 @@ AAAwTMAAAAAADPv/Aa/RbJsaITXgAAAAAElFTkSuQmCC
 <span class="n">samples</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">indices</span><span class="p">],</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
 <span class="k">print</span> <span class="s2">&quot;Chosen samples of wholesale customers dataset:&quot;</span>
 <span class="n">display</span><span class="p">(</span><span class="n">samples</span><span class="p">)</span>
+
+<span class="c1"># samples different from mean </span>
+<span class="k">print</span> <span class="s2">&quot;Samples different from mean: &quot;</span>
+<span class="n">display</span><span class="p">(</span><span class="n">samples</span> <span class="o">-</span> <span class="n">data</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+<span class="c1"># samples different from median </span>
+<span class="k">print</span> <span class="s2">&quot;Samples different from median: &quot;</span>
+<span class="n">display</span><span class="p">(</span><span class="n">samples</span> <span class="o">-</span> <span class="n">data</span><span class="o">.</span><span class="n">median</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12683,6 +12691,148 @@ AAAwTMAAAAAADPv/Aa/RbJsaITXgAAAAAElFTkSuQmCC
 
 </div>
 
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Samples different from mean: 
+</pre>
+</div>
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+
+<div class="output_html rendered_html output_subarea ">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Fresh</th>
+      <th>Milk</th>
+      <th>Grocery</th>
+      <th>Frozen</th>
+      <th>Detergents_Paper</th>
+      <th>Delicatessen</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>44158.702273</td>
+      <td>-5241.265909</td>
+      <td>-7049.277273</td>
+      <td>6930.068182</td>
+      <td>-2669.493182</td>
+      <td>1391.129545</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-11509.297727</td>
+      <td>4676.734091</td>
+      <td>3580.722727</td>
+      <td>-2327.931818</td>
+      <td>2729.506818</td>
+      <td>-1300.870455</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-10311.297727</td>
+      <td>1167.734091</td>
+      <td>18364.722727</td>
+      <td>-1615.931818</td>
+      <td>12587.506818</td>
+      <td>-1487.870455</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Samples different from median: 
+</pre>
+</div>
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+
+<div class="output_html rendered_html output_subarea ">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Fresh</th>
+      <th>Milk</th>
+      <th>Grocery</th>
+      <th>Frozen</th>
+      <th>Detergents_Paper</th>
+      <th>Delicatessen</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>47655.0</td>
+      <td>-3072.0</td>
+      <td>-3853.5</td>
+      <td>8476.0</td>
+      <td>-604.5</td>
+      <td>1950.5</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-8013.0</td>
+      <td>6846.0</td>
+      <td>6776.5</td>
+      <td>-782.0</td>
+      <td>4794.5</td>
+      <td>-741.5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-6815.0</td>
+      <td>3337.0</td>
+      <td>21560.5</td>
+      <td>-70.0</td>
+      <td>14652.5</td>
+      <td>-928.5</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -12716,6 +12866,7 @@ AAAwTMAAAAAADPv/Aa/RbJsaITXgAAAAAElFTkSuQmCC
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
+<p>As stated above, the mean and median on the data have a large gap (median is below the mean), so we can conclude that this data is skewed.</p>
 <p>Firstly, we need to identify the type of the customers or establishment this wholesale interact with, in my opinion we can catagorize the customer as:</p>
 <ul>
 <li>Restaurant - sell a food, usually needs fresh and frozen.</li>
@@ -12723,13 +12874,16 @@ AAAwTMAAAAAADPv/Aa/RbJsaITXgAAAAAElFTkSuQmCC
 <li>Hypermarkets - sell a wide range of products, more than supermarkets. Usually delicatessen also can found here.</li>
 <li>Warehouse store - sell a grocery and detergents paper</li>
 <li>Convenience Store - sell a small part of frozen and grocery</li>
-<li>Food Retailer - sell more of frozen, fresh, mlik and delicatessen</li>
+<li>Food Retailer - sell more of frozen, fresh, milk and delicatessen</li>
 </ul>
 <p>Now we can categorize the customer as we defined above:</p>
 <ul>
-<li>Index(0), customer 39 - we can see that it seems this kind of customer have a lot of fresh food, delicatessen and frozen products, it is likely to be a food retailer</li>
-<li>Index(1), customer 53 - From this sample, we can learn that the customer have a lot of variety products, but not delicatessen. So i assume it is supermarkets.</li>
-<li>Index(2), customer 343 - Dominated by Grocery and Detergents Paper products, i assume it is a warehouse store</li>
+<li><p>Index(0), customer 39 - The data aboves gives information that the customer heavily spent on Fresh, Frozen and delicatessen. They spent less on Grocery, Detergents_paper and milk. We can  assume that this customer face directly to the end customer like restaurants and food retailer</p>
+</li>
+<li><p>Index(1), customer 53 - Opposite from customer 39, this customer spent quite large on Milk, Grocery and Detergents_paper (above the mean) and less for others. So we can conclude that this type of customer also sells non-food products like warehouse, supermarkets and hypermarkets.</p>
+</li>
+<li><p>Index(2), customer 343 - This type of customer spent more on detergents_paper, milk and grocery, and the others quite same like the mean. we can also conclude that this type of customer sells non-food products and can be categorize same as customer 53.</p>
+</li>
 </ul>
 
 </div>
@@ -12757,25 +12911,31 @@ AAAwTMAAAAAADPv/Aa/RbJsaITXgAAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
 <span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeRegressor</span>
 
-<span class="c1"># TODO: Make a copy of the DataFrame, using the &#39;drop&#39; function to drop the given feature</span>
-<span class="n">new_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;Grocery&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="bp">False</span><span class="p">)</span>
+<span class="n">columns</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
 
-<span class="c1"># TODO: Split the data into training and testing sets(0.25) using the given feature as the target</span>
-<span class="c1"># Set a random state.</span>
-<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">new_data</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Grocery&#39;</span><span class="p">],</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">columns</span><span class="p">:</span>
+    <span class="c1"># TODO: Make a copy of the DataFrame, using the &#39;drop&#39; function to drop the given feature</span>
+    <span class="n">new_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="n">i</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="bp">False</span><span class="p">)</span>
 
-<span class="c1"># TODO: Create a decision tree regressor and fit it to the training set</span>
-<span class="n">regressor</span> <span class="o">=</span> <span class="n">DecisionTreeRegressor</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">regressor</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-<span class="c1"># TODO: Report the score of the prediction using the testing set</span>
-<span class="n">score</span> <span class="o">=</span> <span class="n">regressor</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
-<span class="k">print</span> <span class="s2">&quot;Score: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">score</span>
+    <span class="c1"># TODO: Split the data into training and testing sets(0.25) using the given feature as the target</span>
+    <span class="c1"># Set a random state.</span>
+    <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">new_data</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+    <span class="c1"># TODO: Create a decision tree regressor and fit it to the training set</span>
+    <span class="n">avg_scores</span> <span class="o">=</span> <span class="p">[]</span>   <span class="c1"># average the scores of random_state</span>
+    <span class="k">for</span> <span class="n">rand</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">):</span>
+        <span class="n">regressor</span> <span class="o">=</span> <span class="n">DecisionTreeRegressor</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="n">rand</span><span class="p">)</span>
+        <span class="n">regressor</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+        <span class="c1"># TODO: Report the score of the prediction using the testing set</span>
+        <span class="n">score</span> <span class="o">=</span> <span class="n">regressor</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+        <span class="n">avg_scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">score</span><span class="p">)</span>
+    <span class="k">print</span> <span class="s2">&quot;Score with </span><span class="si">%s</span><span class="s2"> as the target: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">avg_scores</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
 </pre></div>
 
 </div>
@@ -12788,7 +12948,12 @@ AAAwTMAAAAAADPv/Aa/RbJsaITXgAAAAAElFTkSuQmCC
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Score: 0.713184197804
+<pre>Score with Fresh as the target: -0.51792699721
+Score with Milk as the target: 0.489688550114
+Score with Grocery as the target: 0.702723959478
+Score with Frozen as the target: -0.176038671125
+Score with Detergents_Paper as the target: 0.695469205941
+Score with Delicatessen as the target: -9.29949385448
 </pre>
 </div>
 </div>
@@ -12807,7 +12972,7 @@ AAAwTMAAAAAADPv/Aa/RbJsaITXgAAAAAElFTkSuQmCC
 <li>What was the reported prediction score? </li>
 <li>Is this feature necessary for identifying customers' spending habits?</li>
 </ul>
-<p><strong>Hint:</strong> The coefficient of determination, <code>R^2</code>, is scored between 0 and 1, with 1 being a perfect fit. A negative <code>R^2</code> implies the model fails to fit the data. If you get a low score for a particular feature, that lends us to beleive that that feature point is hard to predict using the other features, thereby making it an important feature to consider when considering relevance.</p>
+<p><strong>Hint:</strong> The coefficient of determination, <code>R^2</code>, is scored between 0 and 1, with 1 being a perfect fit. A negative <code>R^2</code> implies the model fails to fit the data. If you get a low score for a particular feature, that lends us to believe that that feature point is hard to predict using the other features, thereby making it an important feature to consider when considering relevance.</p>
 
 </div>
 </div>
@@ -12818,7 +12983,8 @@ AAAwTMAAAAAADPv/Aa/RbJsaITXgAAAAAElFTkSuQmCC
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
-<p>I am trying to predict the <strong>grocery</strong> feature by using others features. The reported prediction score (coefficient of determination) is about <em>0.71</em>. We could see the patterns of customer's habit when they bought the grocery. <em>There are some features that we can use to predict the customer's habit</em>. So we need to conduct further analysis to see the correlation between features.</p>
+<p>Some of the result printed above have a negative score (Delicatessen, Frozen and Fresh) while the others is positive (Detergents_Paper, Milk and Grocery). As we know that <code>R^2</code> compares the fit of the chosen model with a horizontal straight line (mean). Negative means that the model fits worse than horizontal line and does not follow the trend of the data while positive means that the model follow the trends or can be predicted using others features.</p>
+<p>As we see the result grocery score is the highest, about 70% followed by detergents_paper for 69% while the others is below 50%. It seems that grocery and detergents_paper can easily explained by using other features, but overall we can see the customer spending habits can't really explained by using other features</p>
 
 </div>
 </div>
@@ -12835,7 +13001,7 @@ AAAwTMAAAAAADPv/Aa/RbJsaITXgAAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Produce a scatter matrix for each pair of features in the data</span>
@@ -14970,7 +15136,7 @@ AAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Correlation using heatmap</span>
@@ -15505,7 +15671,7 @@ ipEQQgjFSTESQgihOClGQgghFPf/ymCmkHDijb4AAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
@@ -19722,7 +19888,7 @@ QmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Display the log-transformed sample data</span>
@@ -19826,7 +19992,7 @@ Once you have performed this implementation, the dataset will be stored in the v
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># For each feature find the data points with extreme high or low values</span>
@@ -20626,7 +20792,7 @@ Once you have performed this implementation, the dataset will be stored in the v
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Apply PCA by fitting the good data with the same number of dimensions as features</span>
@@ -21109,7 +21275,7 @@ CUQAAECxBCIAAKBYAhEAAFCs/wMKMfrSiPBRDgAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Display sample log-data after having a PCA transformation applied</span>
@@ -21210,7 +21376,7 @@ CUQAAECxBCIAAKBYAhEAAFCs/wMKMfrSiPBRDgAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Apply PCA by fitting the good data with only two dimensions</span>
@@ -21244,7 +21410,7 @@ CUQAAECxBCIAAKBYAhEAAFCs/wMKMfrSiPBRDgAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Display sample log-data after applying PCA transformation in two dimensions</span>
@@ -21324,7 +21490,7 @@ CUQAAECxBCIAAKBYAhEAAFCs/wMKMfrSiPBRDgAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Create a biplot</span>
@@ -21339,11 +21505,11 @@ CUQAAECxBCIAAKBYAhEAAFCs/wMKMfrSiPBRDgAAAABJRU5ErkJggg==
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[15]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[39]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x11dd1160&gt;</pre>
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0xd104f60&gt;</pre>
 </div>
 
 </div>
@@ -22496,10 +22662,18 @@ AMMozAAAAADAMAozAAAAADCMwgwAAAAADPsTg4onvHjhbJoAAAAASUVORK5CYII=
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
 <ul>
-<li><p>K-Means: K-Means is one of the simplest algorithm as unsupervised learning method and also very fast. It aims to partition <em>n</em> observation into <em>k</em> clusters with the nearest mean (euclidean distance). Because it needs initialization point, K-Means allows clusters to have different shapes (no guarantee that optimum is found).</p>
+<li><p><strong>Gaussian Mixture Model (GMM)</strong>: It is a probabilistic models (it gives a distribution of possible outcome) that assumues the observed data is made up of mixture of several Gaussian Distributions. GMM is on of soft clustering methods where we can assign a data point more than one cluster. The result of the shape of clusters generated can be ellipses or sphere (flexible, not circular)</p>
 </li>
-<li><p>Gaussian Mixture Model: It is a probabilistic models that assumues the observed data is made up of mixture of several Gaussian Distributions (which each of them have different means and variances).</p>
+<li><p><strong>K-Means</strong>: K-Means is one of the simplest algorithm as unsupervised learning method and also fast. It aims to partition <em>n</em> observation into <em>k</em> clusters with the nearest mean (euclidean distance). Unlike Gaussian Mixture, K-Means requires the cluster to be fixed size and symmetrical (circular), this makes K-Means very fast but not flexible in terms of shape. K-Means performs hard clustering which means the data point is assigned to one and only one cluster.</p>
 </li>
+</ul>
+<p><em>Because data is quite spreads, i think K-Means will perform better, because Gaussian Mixture is better to fit a streched dataset where we can see the patterns.</em></p>
+<p>Cluster references:</p>
+<ul>
+<li><a href="https://shapeofdata.wordpress.com/2013/07/30/k-means/">https://shapeofdata.wordpress.com/2013/07/30/k-means/</a></li>
+<li><a href="https://jakevdp.github.io/PythonDataScienceHandbook/05.12-gaussian-mixtures.html">https://jakevdp.github.io/PythonDataScienceHandbook/05.12-gaussian-mixtures.html</a></li>
+<li><a href="https://www.quora.com/What-is-the-difference-between-K-means-and-the-mixture-model-of-Gaussian">https://www.quora.com/What-is-the-difference-between-K-means-and-the-mixture-model-of-Gaussian</a></li>
+<li><a href="http://classes.engr.oregonstate.edu/eecs/fall2011/cs434/notes/GMM-14.pdf">http://classes.engr.oregonstate.edu/eecs/fall2011/cs434/notes/GMM-14.pdf</a></li>
 </ul>
 
 </div>
@@ -22528,7 +22702,7 @@ AMMozAAAAADAMAozAAAAADCMwgwAAAAADPsTg4onvHjhbJoAAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[53]:</div>
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
@@ -22540,7 +22714,7 @@ AMMozAAAAADAMAozAAAAADCMwgwAAAAADPsTg4onvHjhbJoAAAAASUVORK5CYII=
 <span class="k">def</span> <span class="nf">n_clusters</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">cluster_algoritm</span><span class="p">):</span>
     <span class="n">param</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s1">&#39;kmeans&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;n_clusters&#39;</span><span class="p">:</span><span class="n">n</span><span class="p">,</span> <span class="s1">&#39;random_state&#39;</span><span class="p">:</span><span class="mi">29</span><span class="p">},</span>
-        <span class="s1">&#39;gmm&#39;</span><span class="p">:</span> <span class="p">{}</span>
+        <span class="s1">&#39;gmm&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;n_components&#39;</span><span class="p">:</span><span class="n">n</span><span class="p">,</span> <span class="s1">&#39;covariance_type&#39;</span><span class="p">:</span> <span class="s1">&#39;spherical&#39;</span><span class="p">,</span> <span class="s1">&#39;random_state&#39;</span><span class="p">:</span><span class="mi">29</span><span class="p">}</span>
     <span class="p">}</span>
 
     <span class="n">clusterer</span> <span class="o">=</span> <span class="p">{</span>
@@ -22555,7 +22729,7 @@ AMMozAAAAADAMAozAAAAADCMwgwAAAAADPsTg4onvHjhbJoAAAAASUVORK5CYII=
     <span class="c1"># TODO: Find the cluster centers</span>
     <span class="n">centers</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s1">&#39;kmeans&#39;</span><span class="p">:</span> <span class="n">clusterer</span><span class="p">[</span><span class="s1">&#39;kmeans&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">cluster_centers_</span><span class="p">,</span>
-        <span class="s1">&#39;gmm&#39;</span><span class="p">:</span> <span class="p">{}</span>
+        <span class="s1">&#39;gmm&#39;</span><span class="p">:</span> <span class="n">clusterer</span><span class="p">[</span><span class="s1">&#39;gmm&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">means_</span>
     <span class="p">}</span>
     <span class="c1"># TODO: Predict the cluster for each transformed sample data point</span>
     <span class="n">sample_preds</span> <span class="o">=</span> <span class="p">{</span>
@@ -22564,8 +22738,8 @@ AMMozAAAAADAMAozAAAAADCMwgwAAAAADPsTg4onvHjhbJoAAAAASUVORK5CYII=
     <span class="p">}</span>
     <span class="c1"># TODO: Calculate the mean silhouette coefficient for the number of clusters chosen</span>
     <span class="n">score</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#39;kmeans&#39;</span><span class="p">:</span> <span class="n">silhouette_score</span><span class="p">(</span><span class="n">reduced_data</span><span class="p">,</span> <span class="n">clusterer</span><span class="p">[</span><span class="s1">&#39;kmeans&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;euclidean&#39;</span><span class="p">),</span>
-        <span class="s1">&#39;gmm&#39;</span><span class="p">:</span> <span class="p">{}</span>
+        <span class="s1">&#39;kmeans&#39;</span><span class="p">:</span> <span class="n">silhouette_score</span><span class="p">(</span><span class="n">reduced_data</span><span class="p">,</span> <span class="n">preds</span><span class="p">[</span><span class="s1">&#39;kmeans&#39;</span><span class="p">],</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;euclidean&#39;</span><span class="p">),</span>
+        <span class="s1">&#39;gmm&#39;</span><span class="p">:</span> <span class="n">silhouette_score</span><span class="p">(</span><span class="n">reduced_data</span><span class="p">,</span> <span class="n">preds</span><span class="p">[</span><span class="s1">&#39;gmm&#39;</span><span class="p">],</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;euclidean&#39;</span><span class="p">),</span>
     <span class="p">}</span>
     <span class="k">return</span> <span class="n">score</span><span class="p">[</span><span class="n">cluster_algoritm</span><span class="p">]</span>
 </pre></div>
@@ -22577,11 +22751,12 @@ AMMozAAAAADAMAozAAAAADCMwgwAAAAADPsTg4onvHjhbJoAAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[55]:</div>
+<div class="prompt input_prompt">In&nbsp;[49]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">):</span>
-    <span class="k">print</span> <span class="s1">&#39;score by {} of clusters for kmeans: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">n_clusters</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;kmeans&#39;</span><span class="p">))</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">algo_name</span> <span class="o">=</span> <span class="s1">&#39;kmeans&#39;</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s1">&#39;score by {} of clusters for {}: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">algo_name</span><span class="p">,</span> <span class="n">n_clusters</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">algo_name</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -22643,11 +22818,19 @@ The best silhouette score that we get is using 2 clusters. After using 4 cluster
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[57]:</div>
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Display the results of the clustering from implementation</span>
-<span class="n">vs</span><span class="o">.</span><span class="n">cluster_results</span><span class="p">(</span><span class="n">reduced_data</span><span class="p">,</span> <span class="n">preds</span><span class="p">[</span><span class="s1">&#39;kmeans&#39;</span><span class="p">],</span> <span class="n">centers</span><span class="p">[</span><span class="s1">&#39;kmeans&#39;</span><span class="p">],</span> <span class="n">pca_samples</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># using 2 clusters</span>
+<span class="n">param</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;n_clusters&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;random_state&#39;</span><span class="p">:</span><span class="mi">29</span><span class="p">}</span>
+<span class="n">clusterer</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="o">**</span><span class="n">param</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">reduced_data</span><span class="p">)</span>            
+
+<span class="n">preds</span> <span class="o">=</span> <span class="n">clusterer</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">reduced_data</span><span class="p">)</span>
+
+<span class="n">centers</span> <span class="o">=</span> <span class="n">clusterer</span><span class="o">.</span><span class="n">cluster_centers_</span>
+<span class="n">sample_preds</span> <span class="o">=</span> <span class="n">clusterer</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">reduced_samples</span><span class="p">)</span>
+
+<span class="n">vs</span><span class="o">.</span><span class="n">cluster_results</span><span class="p">(</span><span class="n">reduced_data</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">centers</span><span class="p">,</span> <span class="n">pca_samples</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -23377,11 +23560,11 @@ AAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Inverse transform the centers</span>
-<span class="n">log_centers</span> <span class="o">=</span> <span class="n">pca_2</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">centers</span><span class="p">[</span><span class="s1">&#39;kmeans&#39;</span><span class="p">])</span>
+<span class="n">log_centers</span> <span class="o">=</span> <span class="n">pca_2</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">centers</span><span class="p">)</span>
 
 <span class="c1"># TODO: Exponentiate the centers</span>
 <span class="n">true_centers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">log_centers</span><span class="p">)</span>
@@ -23475,11 +23658,16 @@ AAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[77]:</div>
+<div class="prompt input_prompt">In&nbsp;[53]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">good_unscaled_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">outliers</span><span class="p">])</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
-<span class="n">true_centers</span> <span class="o">-</span> <span class="n">good_unscaled_data</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> 
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="s1">&#39;centers offset from mean&#39;</span>
+<span class="n">good_unscaled_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">outliers</span><span class="p">])</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">true_centers</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="n">good_unscaled_data</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
+
+<span class="k">print</span> <span class="s1">&#39;centers offset from median&#39;</span>
+<span class="n">good_unscaled_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">outliers</span><span class="p">])</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">true_centers</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="n">good_unscaled_data</span><span class="o">.</span><span class="n">median</span><span class="p">(),</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -23490,9 +23678,16 @@ AAAAAElFTkSuQmCC
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[77]:</div>
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>centers offset from mean
+</pre>
+</div>
+</div>
 
-<div class="output_html rendered_html output_subarea output_execute_result">
+<div class="output_area"><div class="prompt"></div>
+
+<div class="output_html rendered_html output_subarea ">
 <div>
 <style>
     .dataframe thead tr:only-child th {
@@ -23522,21 +23717,83 @@ AAAAAElFTkSuQmCC
   <tbody>
     <tr>
       <th>Segment 0</th>
-      <td>-8072.372414</td>
-      <td>2128.896552</td>
-      <td>4215.841379</td>
-      <td>-2142.126437</td>
-      <td>1703.526437</td>
-      <td>-495.797701</td>
+      <td>-8072.372</td>
+      <td>2128.897</td>
+      <td>4215.841</td>
+      <td>-2142.126</td>
+      <td>1703.526</td>
+      <td>-495.798</td>
     </tr>
     <tr>
       <th>Segment 1</th>
-      <td>-3211.372414</td>
-      <td>-3893.103448</td>
-      <td>-5436.158621</td>
-      <td>-1005.126437</td>
-      <td>-2551.473563</td>
-      <td>-851.797701</td>
+      <td>-3211.372</td>
+      <td>-3893.103</td>
+      <td>-5436.159</td>
+      <td>-1005.126</td>
+      <td>-2551.474</td>
+      <td>-851.798</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>centers offset from median
+</pre>
+</div>
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+
+<div class="output_html rendered_html output_subarea ">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Fresh</th>
+      <th>Milk</th>
+      <th>Grocery</th>
+      <th>Frozen</th>
+      <th>Detergents_Paper</th>
+      <th>Delicatessen</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Segment 0</th>
+      <td>-4548.0</td>
+      <td>4283.0</td>
+      <td>7370.0</td>
+      <td>-587.0</td>
+      <td>3739.0</td>
+      <td>74.0</td>
+    </tr>
+    <tr>
+      <th>Segment 1</th>
+      <td>313.0</td>
+      <td>-1739.0</td>
+      <td>-2282.0</td>
+      <td>550.0</td>
+      <td>-516.0</td>
+      <td>-282.0</td>
     </tr>
   </tbody>
 </table>
@@ -23555,7 +23812,8 @@ AAAAAElFTkSuQmCC
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
-<p>It seems that segment 0 is the customer that purchased the Milk, grocery and detergents paper, while on segment 1 is the customer that purchased lot of frozen and delicatessen and the rest is low.</p>
+<p>The table above gives information about two clusters (segment) centers offset from mean. We can see that segment 0 is the customer that heavily purchased milk, grocery and a bit of detergents paper, while on segment 1 is the customer that purchased lot of frozen and fresh eventhough still below the mean.</p>
+<p>So these two clusters divide wholesale customer in 2 categories, the first is customer that sell non-foods and food(less) and the second is the customer that sell food.</p>
 
 </div>
 </div>
@@ -23576,11 +23834,11 @@ AAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[45]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Display the predictions</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">pred</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sample_preds</span><span class="p">[</span><span class="s1">&#39;kmeans&#39;</span><span class="p">]):</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">pred</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sample_preds</span><span class="p">):</span>
     <span class="k">print</span> <span class="s2">&quot;Sample point&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s2">&quot;predicted to be in Cluster&quot;</span><span class="p">,</span> <span class="n">pred</span>
 </pre></div>
 
@@ -23611,7 +23869,7 @@ Sample point 2 predicted to be in Cluster 0
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
-<p>While i try to categorized many customer before, we can conclude that the customers is divides into 2 category that is:</p>
+<p>As i mention on above, There are too much categories to assume before, but now we can conclude that the customers is divides into 2 big categories:</p>
 <ul>
 <li>customer that sell goods and less food (purchased lot of grocery, milk and detergent_papers and less for others), for example like <em>supermarket</em>, <em>retailer</em>, <em>hypermarkets</em> and <em>warehouse store</em> (segment 0)</li>
 <li>customer that sell food and processed the food themselves for end customers (purchased lot of fresh, delicatessen and frozen and less for others) sucs as <em>restaurants</em> and <em>food retailers</em> (segment 1)</li>
@@ -23665,8 +23923,13 @@ Sample point 2 predicted to be in Cluster 0
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
-<p>If the wholsesale is considering to change it delivery to be faster, it can be implemented on customer on segment 1. The customer on segment 1 needs a lot of fresh food and delicatessen so we can assume that it serve customer directly. But just to be safe, we could not conclude to early so we need to implement A/B testing first.</p>
-<p>To run A/B testing for delivery service, first we can use the new delivery service on customer on segment 1 (purchased lot of fresh, frozen and delicatessen) and old delivery service on segment 0. We test both version simultaneously and after a while we change the delivery service vice versa.</p>
+<p>If the wholsesale is considering to change it delivery to be faster, it can be implemented on customer on cluster 1 (segment 1). The customer on cluster 1 needs a lot of fresh food and delicatessen so we can assume that it serve customer directly. But just to be safe, we could not conclude to early so we need to implement A/B testing first.</p>
+<p>Taken from netflix, <em>"The general concept behind A/B testing to create an experiment with a control group and on or more experimental group which receive alternative treatments"</em>. To run A/B testing for delivery service, we can test two groups by selects sample of customers from each cluster and using the remainder of their cluster as the control group. (each cluster contains two groups: control and experimental). The experimental groups will receive the 3-day per week schedule while the control group use the default treatment. This would give us data on how the 3-day per week schedule affects customers in both clusters, whether it has good effects or not.</p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://medium.com/netflix-techblog/its-all-a-bout-testing-the-netflix-experimentation-platform-4e1ca458c15">https://medium.com/netflix-techblog/its-all-a-bout-testing-the-netflix-experimentation-platform-4e1ca458c15</a></li>
+<li><a href="https://www.quora.com/When-should-A-B-testing-not-be-trusted-to-make-decisions/answer/Edwin-Chen-1">https://www.quora.com/When-should-A-B-testing-not-be-trusted-to-make-decisions/answer/Edwin-Chen-1</a></li>
+</ul>
 
 </div>
 </div>
@@ -23709,7 +23972,7 @@ Sample point 2 predicted to be in Cluster 0
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[46]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Display the clustering results based on &#39;Channel&#39; data</span>
