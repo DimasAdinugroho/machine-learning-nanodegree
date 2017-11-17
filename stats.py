@@ -13,6 +13,7 @@ class BasicStat(object):
     @staticmethod
     def standard_dev(X, sample=False):
         import math
+        # sample use n-1, this is bessel's correction
         return math.sqrt(BasicStat.variance(X, sample=sample))
 
     @staticmethod
@@ -36,13 +37,17 @@ class NormalDistribution(object):
         self.dist = norm(mean, std)
 
     def get_z(self, x):
+        '''
+        input x: x values
+        return: z-score
+        '''
         return round(float(x - self._mean) / self._std, 2)
 
     def pdf(self, x):
         return round(self.dist.pdf(x), 4)
 
     def ppf(self, percent):
-        ''' convert percent to z-score 
+        ''' convert percent to z-score
         example: 95% OR 0.95 should return 1.96
         '''
         return self.dist.ppf(percent)
@@ -50,10 +55,39 @@ class NormalDistribution(object):
     def cdf(self, x, less=True):
         ''' Get Probability using z-table
         (cumulative distribution function), area under the curve
+        input x: x values, not the z-score
         '''
         if less == True:
             return round(self.dist.cdf(x), 4)
-        return 1 - round(self.dist.cdf(x), 4)
+        return 1 - round(self.dist.cdf(x), 4) - 0.0003  # correction
+
+    def plot(self):
+        import matplotlib.pyplot as plt
+        min_max = (self._mean - self._std * 3, self._mean + self._std * 3)
+        rng = range(min_max[0], min_max[1])
+        self.dist.pdf(r)
+
+        fig = plt.figure(figsize=(10, 8))
+        plt.subplot(311)  # Creates a 3 row, 1 column grid of plots, and renders the following chart in slot 1.
+        plt.plot(rng, self.dist.pdf(rng), 'r', linewidth=2)
+        plt.title('Probability density function of normal distribution')
+
+        # Plot probability density function and of this distribution.
+        plt.subplot(312)
+        plt.plot(rng, self.dist.cdf(rng))
+        plt.title('Cumulutative distribution function of normal distribution')
+
+        # Draw 1000 samples from the random variable.
+        sample = self.dist.rvs(size=10000)
+
+        print "Sample descriptive statistics:"
+        print pd.DataFrame(sample).describe()
+
+        # Plot a histogram of the samples.
+        plt.subplot(313)
+        plt.hist(sample, bins=100, normed=True)
+        plt.plot(rng, self.dist.pdf(rng), 'r--', linewidth=2)
+        plt.title('10,000 random samples from normal distribution')
 
 
 class LinearRegression(object):
@@ -90,4 +124,3 @@ class LinearRegression(object):
             return 0
         X = np.array(X)
         return self.gradient * X + self.intercept
-

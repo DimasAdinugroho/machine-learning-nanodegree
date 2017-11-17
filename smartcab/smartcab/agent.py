@@ -56,7 +56,7 @@ class LearningAgent(Agent):
         ## TO DO ##
         ###########
 
-        # NOTE : you are not allowed to engineer eatures outside of the inputs available.
+        # NOTE : you are not allowed to engineer new features outside of the inputs available.
         # Because the aim of this project is to teach Reinforcement Learning, we have placed
         # constraints in order for you to learn how to adjust epsilon and alpha, and thus learn about the balance between exploration and exploitation.
         # With the hand-engineered features, this learning process gets entirely negated.
@@ -159,7 +159,7 @@ def run():
     ##############
     # Create the driving agent
     # Flags:
-    learning = True  # - set to True to force the driving agent to use Q-learning
+    learning = False  # - set to True to force the driving agent to use Q-learning
     epsilon = 1  # - continuous value for the exploration factor, default is 1
     alpha = 0.002  # - continuous value for the learning rate, default is 0.5
     agent = env.create_agent(LearningAgent, learning=learning,
@@ -168,7 +168,7 @@ def run():
     ##############
     # Follow the driving agent
     # Flags:
-    enforce_deadline = True  # set to True to enforce a deadline metric
+    enforce_deadline = False  # set to True to enforce a deadline metric
     env.set_primary_agent(agent, enforce_deadline=enforce_deadline)
 
     ##############
@@ -176,8 +176,8 @@ def run():
     # Flags:
     update_delay = 2.0  # continuous time (in seconds) between actions, default is 2.0 seconds
     log_metrics = False  # set to True to log trial and simulation results to /logs
-    optimized = True  # set to True to change the default log file name
-    display = False  # set to False to disable the GUI if PyGame is enabled
+    optimized = False  # set to True to change the default log file name
+    display = True  # set to False to disable the GUI if PyGame is enabled
     sim = Simulator(env, update_delay=update_delay,
                     log_metrics=log_metrics,
                     optimized=optimized,
