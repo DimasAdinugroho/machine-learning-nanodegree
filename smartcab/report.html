@@ -24495,13 +24495,85 @@ MzMzMzOrkP8Hs9DT/mPorgMAAAAASUVORK5CYII=
 <li>inputs['left']: Ihe intended direction of vehicle to the the smartcab's left on the intersection. It stop if the action is None.</li>
 <li>inputs['oncoming']: Ihe intended direction of vehicle across the intersection of the smartcab. It stop if the action is None.</li>
 </ul>
-<p>On sim_improved-learning.txt we can see total state of the smartcab is 96. I define the optimal policy of the smartcab given the environment below:</p>
+<p>On sim_improved-learning.txt we can see total state of the smartcab is 96. There are two criteria for achieve the best rating for reliability and safety:</p>
 <ul>
 <li>To achieve good reliability, the smartcab need to follow the waypoint value and not trying to go to another route. So it should be as efficient as possible.</li>
 <li>To achieve goof safety, the smartcab need to follow the traffic light state, it need stop at red light and move at green light.</li>
-<li>If the waypoint value is <code>Right</code> and the light is <code>Red</code>, the agent action is <code>Right</code> and not <code>None</code>, because it don't need to stop at the red light.</li>
 </ul>
-<p>The suboptimal is achieve if the agent not follow to the intended waypoint without breaking the traffic laws. The smartcab trying not to the the negative reward so it may not be as optimized as we may see. We can see the example that exist on sim_improved-learning.txt below:</p>
+<p>I define the policy of the smartcab given the environment below, The optimal policy is defined same as U.S Right-Of-Way rules. The rules is:</p>
+<ul>
+<li>When <code>Green</code>, if the waypoint is <code>Left</code>, a left turn is not permitted (<code>None</code>) if there is <code>Oncoming</code> traffic making <code>Right</code> or <code>Forward</code>. Other than that, the agent must can take <code>Left</code>.</li>
+<li>When <code>Red</code>, if the waypoint is <code>Right</code>, a right turn is not permitted (<code>None</code>) if <code>Left</code> traffic making <code>Forward</code>. Other than that, the agent must can take <code>Right</code>.</li>
+</ul>
+<p>Table below is the example of the optimal policy:</p>
+<table>
+<thead><tr>
+<th>Light</th>
+<th>Waypoint</th>
+<th>Left</th>
+<th>Oncoming</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Green</td>
+<td>Any</td>
+<td>None</td>
+<td>None</td>
+<td>Any(same as waypoint)</td>
+</tr>
+<tr>
+<td>Green</td>
+<td>Left</td>
+<td>Any</td>
+<td>Forward</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Green</td>
+<td>Left</td>
+<td>Any</td>
+<td>Right</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Green</td>
+<td>Left</td>
+<td>Any</td>
+<td>Left</td>
+<td>Left</td>
+</tr>
+<tr>
+<td>Green</td>
+<td>Left</td>
+<td>Any</td>
+<td>None</td>
+<td>Left</td>
+</tr>
+<tr>
+<td>Red</td>
+<td>Right</td>
+<td>Forward</td>
+<td>Any</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Red</td>
+<td>Right</td>
+<td>Forward'</td>
+<td>Any</td>
+<td>Right</td>
+</tr>
+</tbody>
+</table>
+<p>where:</p>
+
+<pre><code>* Any can be Right, Left, Forward or None
+* Forward' is negation of Forward, can by anything other than that
+
+</code></pre>
+<p>The suboptimal is achieve if the agent not follow to the rule above without breaking the traffic laws (getting violation). The smartcab trying not to the the negative reward so it may not be as optimized as we may see. We can see the example that exist on sim_improved-learning.txt below:</p>
 
 <pre><code># optimal, because it follow the traffic light (stop), even it can still going to the left.
 ('forward', 'red', None, 'forward')
@@ -24510,7 +24582,7 @@ MzMzMzOrkP8Hs9DT/mPorgMAAAAASUVORK5CYII=
  -- None : 1.50
  -- left : -1.88
 
-# suboptimal, because the smartcab can still going to the left without even though the traffic light is 'red'.
+# suboptimal, because the smartcab can still going to the right without even though the traffic light is 'red'.
  ('right', 'red', 'left', 'left') 
  -- forward : 0.00
  -- right : 0.00
