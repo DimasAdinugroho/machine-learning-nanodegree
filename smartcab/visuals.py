@@ -12,9 +12,13 @@ get_ipython().run_line_magic('matplotlib', 'inline')
 
 import matplotlib.pyplot as plt
 import numpy as np
+import logging
 import pandas as pd
 import os
 import ast
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 
 def calculate_safety(data):
@@ -199,9 +203,9 @@ def plot_trials(csv):
 		ax.text(0.40, 0.42, "{}".format(safety_rating), fontsize=40, ha='center', color=safety_color)
 		ax.text(0.40, 0.27, "Reliability Rating:", fontsize=16, ha='center')
 		ax.text(0.40, 0, "{}".format(reliability_rating), fontsize=40, ha='center', color=reliability_color)
-
+		logger.info('berhasil')
 	else:
 		ax.text(0.36, 0.30, "Simulation completed\nwith testing disabled.", fontsize=20, ha='center', style='italic')	
-
+		
 	plt.tight_layout()
 	plt.show()
