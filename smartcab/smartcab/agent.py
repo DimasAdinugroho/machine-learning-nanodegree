@@ -45,11 +45,11 @@ class LearningAgent(Agent):
             self.alpha = 0.0
         else:
             # epsilon-greedy(decay) function:
-            # self.epsilon = self.epsilon - 0.05
-            self.t += 1.0
+            self.epsilon = self.epsilon - 0.05
+            # self.t += 1.0
             # self.epsilon = 1.0/(self.t**2)  # 1/t^2
             # self.epsilon = math.fabs(math.cos(self.alpha * self.t))
-            self.epsilon = math.exp(-self.alpha * self.t)
+            # self.epsilon = math.exp(-self.alpha * self.t)
         return None
 
     def build_state(self):
@@ -189,9 +189,9 @@ def run():
     # for easy tuning:
     tune = {
         'epsilon': 1.0,
-        'alpha': 0.1,
-        'tolerance': 0.01,
-        'n_test': 20
+        'alpha': 0.5,
+        'tolerance': 0.05,
+        'n_test': 10
     }
 
     ##############
@@ -216,7 +216,7 @@ def run():
     # Flags:
     update_delay = 0.001  # continuous time (in seconds) between actions, default is 2.0 seconds
     log_metrics = True  # set to True to log trial and simulation results to /logs
-    optimized = True  # set to True to change the default log file name
+    optimized = False  # set to True to change the default log file name
     display = True   # set to False to disable the GUI if PyGame is enabled
     sim = Simulator(env, update_delay=update_delay,
                     log_metrics=log_metrics,
