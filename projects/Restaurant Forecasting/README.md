@@ -31,23 +31,3 @@ $n$  is the total number of observations.
 $P_i$ is your prediction of visitors.
 $\alpha_i$ is the actual number of visitors.
 $log(x)$ is the natural logarithm of x
-
-
-## Project Design
-This project is divided into 3 sections:
-
-### Data Exploration:
-Before making some predictions, we need to properly understand and get the insight from Restaurants Forecasting's dataset.  By doing data exploration, we poke around the data and getting a sense of what happen in the data. Due to data comes from different sources, we might have to use query and merge data  to get more insight. Also, to make better model, it will be useful to get some basic statistics, plot the data, and understand the features that correlated to the customer visits.
-
-###  Statistical Approach
-To forecast something, we need to understand the several factors that affect it. A good forecasting captures the patterns and relationship between variables and historical data that impact future events, not only random fluctuation or noise. To understand the pattern and behaviors in time-series data, we need to split the data into several components and then analyze each component.
-
-Most of the statistical approach only use historical data to predict the future. By identifying the historical pattern, we can reconstruct data and use it to forecast the future.  ARIMA model able to explain the trend and seasonality pattern from the historical data and reconstructed it. It is a popular and traditional method for forecasting time series data. Usually, when people come into time-series problem, this approach is preferable and already widely used.
-
-We start with understanding the pattern from ACF and PACF plot. ACF and PACF is a tool that used to identify the historical pattern from time series, how much related is the data from its past. By understanding this plot, we can try to do a simple forecasting model. After that, we try to tune the parameters and adding some features to make better predictions.
-
-### Machine Learning Approach
-
-Machine Learning can be used for forecasting a time series model. What makes time series different from the normal regression is that they are **time-dependent**. The basic assumption of regression is that the observation is independent with each other. Time series data also have some non-linear pattern in it, for example, seasonal and trends. To make it into regression problem, we need to capture the patterns and include them in the feature.
-
-XGBoost algorithm can be used to solve the problem with regression method. It is a popular algorithm and usually used for kaggle competition because of its flexibility and predictive power. The only problem to use XGBoost is that there are many hyper-parameters that can be tuned to improve the model. After we create a simple model, we will try to tune the hyper-parameters by using grid search to improve the model.
